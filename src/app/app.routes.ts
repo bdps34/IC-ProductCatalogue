@@ -4,5 +4,12 @@ import { ProductList } from './features/products/pages/product-list/product-list
 
 export const routes: Routes = [
   { path: '', component: ProductList },
+  {
+    path: 'products/new',
+    loadComponent: () =>
+      import('./features/products/pages/product-create/product-create').then(
+        (m) => m.ProductCreate,
+      ),
+  },
   { path: 'products/:id', component: ProductDetail },
 ];

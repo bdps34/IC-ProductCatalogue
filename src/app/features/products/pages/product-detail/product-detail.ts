@@ -17,7 +17,7 @@ export class ProductDetail {
   private readonly productsService = inject(ProductsService);
 
   id = input.required<string>();
-  
+
   private readonly id$ = toObservable(this.id);
   private readonly productQuery$ = this.id$.pipe(
     switchMap((id) => this.productsService.getProduct(Number(id))),
@@ -25,5 +25,4 @@ export class ProductDetail {
   protected readonly productQuery = toSignal(this.productQuery$, {
     initialValue: { status: 'pending' as const },
   });
-  
 }

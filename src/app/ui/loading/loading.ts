@@ -4,7 +4,7 @@ import { ChangeDetectionStrategy, Component, input } from '@angular/core';
   selector: 'app-loading',
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: `
-    <div class="loading" role="status">
+    <div class="loading" [class.loading--compact]="compact()" role="status">
       <span class="loading__spinner" aria-hidden="true"></span>
       <span>{{ message() }}</span>
     </div>
@@ -13,4 +13,5 @@ import { ChangeDetectionStrategy, Component, input } from '@angular/core';
 })
 export class Loading {
   message = input('Loading…');
+  compact = input(false);
 }

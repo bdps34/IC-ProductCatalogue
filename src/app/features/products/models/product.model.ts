@@ -1,9 +1,6 @@
-export interface ProductRating {
-  rate: number;
-  count: number;
-}
+import { ProductRating } from './product-rating.model';
 
-export interface Product {
+export type Product = {
   id: number;
   title: string;
   price: number;
@@ -11,4 +8,4 @@ export interface Product {
   category: string;
   image: string;
   rating: ProductRating;
-}
+};

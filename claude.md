@@ -31,7 +31,7 @@ You are an expert in TypeScript, Angular, and scalable web application developme
 - Do NOT use `ngClass`, use `class` bindings instead
 - Do NOT use `ngStyle`, use `style` bindings instead
 - When using external templates/styles, use paths relative to the component TS file.
-- Follow the BEM naming convention for component CSS classes.
+- Follow the BEM naming convention for component CSS classes with nesting if possible.
 
 ## State Management
 

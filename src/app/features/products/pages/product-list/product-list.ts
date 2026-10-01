@@ -13,7 +13,8 @@ import { ProductsService } from '../../services/products.service';
 })
 export class ProductList {
   private readonly productsService = inject(ProductsService);
+
   protected readonly productsQuery = toSignal(this.productsService.getProducts(), {
-    initialValue: { status: 'pending' },
+    initialValue: { status: 'pending' as const },
   });
 }
