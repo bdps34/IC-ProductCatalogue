@@ -1,13 +1,18 @@
 import { CurrencyPipe, NgOptimizedImage } from '@angular/common';
 import { ChangeDetectionStrategy, Component, input } from '@angular/core';
+import { RouterLink } from '@angular/router';
 import { Product } from '../../models/product.model';
 
 @Component({
   selector: 'app-product-card',
-  imports: [NgOptimizedImage, CurrencyPipe],
+  imports: [NgOptimizedImage, CurrencyPipe, RouterLink],
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: `
-    <article class="product-card">
+    <a
+      class="product-card"
+      [routerLink]="['/products', product().id]"
+      [attr.aria-label]="product().title"
+    >
       <div class="product-card__media">
         <img [ngSrc]="product().image" [alt]="product().title" fill />
       </div>
@@ -16,7 +21,7 @@ import { Product } from '../../models/product.model';
         <p class="product-card__description">{{ product().description }}</p>
         <p class="product-card__price">{{ product().price | currency }}</p>
       </div>
-    </article>
+    </a>
   `,
   styleUrl: './product-card.scss',
 })

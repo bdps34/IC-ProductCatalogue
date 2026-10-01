@@ -4,25 +4,23 @@
   gap: 0.75rem;
   padding: 1.5rem 0;
   color: var(--color-text-muted);
-}
 
-.loading__spinner {
-  width: 1.25rem;
-  height: 1.25rem;
-  border: 0.15rem solid var(--color-border);
-  border-top-color: var(--color-text-muted);
-  border-radius: 50%;
-  animation: spin 0.7s linear infinite;
+  &__spinner {
+    width: 1.25rem;
+    height: 1.25rem;
+    border: 0.15rem solid var(--color-border);
+    border-top-color: var(--color-text-muted);
+    border-radius: 50%;
+    animation: spin 0.7s linear infinite;
+
+    @media (prefers-reduced-motion: reduce) {
+      animation: none;
+    }
+  }
 }
 
 @keyframes spin {
   to {
     transform: rotate(360deg);
-  }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .loading__spinner {
-    animation: none;
   }
 }
