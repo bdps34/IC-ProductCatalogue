@@ -12,4 +12,5 @@ export const routes: Routes = [
       ),
   },
   { path: 'products/:id', component: ProductDetail },
+  { path: '**', redirectTo: '' },
 ];

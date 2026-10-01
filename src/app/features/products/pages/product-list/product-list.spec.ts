@@ -69,13 +69,13 @@ describe('ProductList', () => {
     expect(fixture.nativeElement.textContent).toContain('Watch');
   });
 
-  it('renders an empty grid without an error or loading indicator when there are no products', () => {
+  it('shows an empty-state message instead of a grid when there are no products', () => {
     productsSubject.next({ status: 'success', data: [] });
     fixture.detectChanges();
 
-    expect(fixture.nativeElement.querySelector('.product-grid')).toBeTruthy();
+    expect(fixture.nativeElement.textContent).toContain('No products available');
+    expect(fixture.nativeElement.querySelector('.product-grid')).toBeNull();
     expect(fixture.nativeElement.querySelectorAll('app-product-card').length).toBe(0);
-    expect(fixture.nativeElement.querySelector('[role="alert"]')).toBeNull();
     expect(fixture.nativeElement.querySelector('[role="status"]')).toBeNull();
   });
 });

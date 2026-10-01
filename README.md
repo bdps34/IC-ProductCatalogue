@@ -218,3 +218,13 @@ The current implementation includes unit tests covering meaningful component and
 ### Observability
 
 In a production environment, integrate client-side error reporting and performance monitoring to detect runtime errors, API failures, and Core Web Vitals regressions.
+
+### Filtering, sorting and search
+
+A natural evolution of the catalog would be filtering, sorting and search. For a larger dataset, I would preferably implement these server-side together with pagination, and include the relevant parameters in the query/cache key.
+
+### More robust error handling
+
+The current error handling is intentionally shallow and mainly covers HTTP/query failures. A production implementation should distinguish between transport errors, invalid route parameters, not-found products, and successful responses containing invalid or unexpected data.
+
+The Fake Store API can return a successful HTTP response for a nonexistent product, so HTTP status alone is not sufficient to determine whether the response represents a valid product.
