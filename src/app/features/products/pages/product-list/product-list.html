@@ -1,0 +1,19 @@
+<section aria-labelledby="product-list-heading">
+  <h2 id="product-list-heading">Products</h2>
+
+  @let state = productsQuery();
+
+  @if (state.status === 'pending') {
+    <app-loading message="Loading products…" />
+  } @else if (state.status === 'error') {
+    <p role="alert">Something went wrong while loading the products. Please try again later.</p>
+  } @else {
+    <ul class="product-grid">
+      @for (product of state.data; track product.id) {
+        <li>
+          <app-product-card [product]="product" />
+        </li>
+      }
+    </ul>
+  }
+</section>
